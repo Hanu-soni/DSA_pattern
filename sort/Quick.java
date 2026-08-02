@@ -10,38 +10,48 @@ class Quick{
 
     }
 
-     public static void quickSort(int[] arr,int pivot,int left,int right){
+     public static void quickSort(int[] arr,int left,int right){
         if(left>=right){
            printarr(arr);
             return;
         }
         //do quick sort for elements on left and right;
-        int i=0,j=0,k=0;
+        int i=left,j=right,k=0;
         int leftarr[]=new int[arr.length-1];
          int rightarr[]=new int[arr.length-1];
-        while(left<right){
-            if(arr[left]<pivot){
-                leftarr[j]=arr[i];
-                j++;
-                System.out.println("leftarr"+leftarr);
+       int pivotIndex = partition(arr, left, right, right);
+        quickSort(arr,left,pivotIndex-1);
+        quickSort(arr,pivotIndex+1,right);
+       
+    }
+
+    public static int partition(int[] arr,int left,int right,int pivot){
+        //three regions
+        // 1. elements smaller than pivot left to j-1
+        //2 elements unknow i to right
+        //3 elements greater - j to i-1
+        int pivotval=arr[pivot];
+        int i=left,j=left;
+        while(i<=right){
+            if(arr[i]>pivotval){
+                i++;
             }
             else{
-                 rightarr[k]=arr[i];
-                k++;
-                System.out.println("rightarr");
-                printarr(rightarr);
+                //swap arr[i] and arr[j]
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+                i++;
+                j++;
             }
-            i++;
         }
-        quickSort(leftarr,leftarr[leftarr.length-1],0,leftarr.length-1);
-        quickSort(rightarr,rightarr[rightarr.length-1],0,rightarr.length-1);
-       
+        return j-1;
     }
 
 
     public static void main(String[] args){
-        int[] arr={5,4,3,2,1};
-        quickSort(arr,1,0,arr.length-1);
+        int[] arr={50,4,30,2,10};
+        quickSort(arr,0,arr.length-1);
         printarr(arr);
         
 
@@ -69,7 +79,9 @@ class Quick{
 // ----------------------------------------------------
 
 // Example
-// [5,4,3,2,1]
+// [5,4,3,1,2]
+
+// 
 
 // Choose last element as Pivot.
 // Pivot = 1
