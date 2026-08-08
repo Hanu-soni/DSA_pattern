@@ -1,16 +1,4 @@
-class Node {
-    int data;
-    Node next;
-
-    Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
-
-
-
-class ListBasic {
+class List {
     Node head;
     Node tail;
     int size;
@@ -42,13 +30,28 @@ class ListBasic {
          size++;  
     }
 
-     public  void midNode(){
+    public  void midNode(){
         Node slow=head,fast=head;
         while(fast!=null && fast.next!=null){
             slow=slow.next;
             fast=fast.next.next;
         }
         printCustom(slow) ;
+    }
+
+
+     public  void detectCycle(){
+        Node slow=head,fast=head;
+        while(fast!=null && fast.next!=null){
+            if(fast==slow){
+                System.out.println("List has cycle");
+                return;
+            }
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        System.out.println("List has no cycle");
+        //printCustom(slow) ;
     }
 
     public void deleteEnd(){
@@ -86,6 +89,8 @@ class ListBasic {
         }
         size--;
     }
+
+
    
 
     public void printList() {
@@ -109,7 +114,7 @@ class ListBasic {
 
 
     public static void main(String[] args) {
-        ListBasic list = new ListBasic();
+        List list = new List();
         list.insertAtTail(10);
         list.insertAtTail(20);
         list.insertAtTail(30);
@@ -131,6 +136,15 @@ class ListBasic {
        // list.midNode();
        // System.out.println("mid node starts like....");
         
+    }
+}
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
     }
 }
 
