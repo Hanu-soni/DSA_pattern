@@ -1,3 +1,14 @@
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+
 
 class ListBasic {
     Node head;
@@ -123,12 +134,3 @@ class ListBasic {
     }
 }
 
-class Node {
-    int data;
-    Node next;
-
-    Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
