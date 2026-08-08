@@ -11,38 +11,44 @@ class Quick{
     }
 
     public static void quickSort(int[] arr){
-        int start=0,end=arr.length-1;
        // int pivot=arr[end];
-        quickSortHelper(start,end,arr);
+        quickSortHelper(0,arr.length-1,arr);
     }
 
     public static void quickSortHelper(int start, int end , int[] arr){
         if(start>=end){
             return;
         }
-        int pivotIndex=partition(arr,start,end);
-        quickSortHelper(start,pivotIndex-1,arr);
-        quickSortHelper(pivotIndex+1,end,arr);
+        int partitionIndex=partition(arr,start,end);
+        quickSortHelper(start,partitionIndex-1,arr);
+        quickSortHelper(partitionIndex+1,end,arr);
     }
 
-    public static int partition(int[] arr,int start,int end){
-        //[5,4,3,2,1]---->  1   
-        //5<1 no, 4<1 ,no......1<=1 yes , pivotIndex still sits on 0 , swap(0-->i);
-        //[1,4,3,2,5]
-        //pIndex=-1   0->-2,  
-        int pivotIndex=start,pivot=arr[end];
-        for(int i=start;i<=end;i++){
+    public static int partition(int[] arr,int start, int end){
+        int partitionIndex=start;
+        int pivot=arr[end];
+        int i=start;
+        // 1    2    8 6 3
+        //1          8 6 3
+        //             3     6 8
+        //                     8
+        while(i<=end){
             if(arr[i]<=pivot){
                 int temp=arr[i];
-                arr[i]=arr[pivotIndex];
-                arr[pivotIndex]=temp;
-                pivotIndex++;
+                arr[i]=arr[partitionIndex];
+                arr[partitionIndex]=temp;
+                partitionIndex++;
+                i++;
             }
+            else{
+                i++;
+            }
+           // return partiionIndex-1;
         }
-        return pivotIndex-1;
-        
-
+        return partitionIndex-1;
     }
+
+    
 
     
 
@@ -70,3 +76,6 @@ class Quick{
 // All larger elements go to the right.
 //return pivotIndex
 //Repeat the same for 0->pivotIndex-1 and pivotIndex+1->right
+
+
+
