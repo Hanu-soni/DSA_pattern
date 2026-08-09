@@ -90,6 +90,41 @@ class List {
         size--;
     }
 
+    public void findAtIndex(int i){
+        //1->2->3->4->5      2    
+        //head -1->2->3      0-1
+        Node temp=head;
+        if(i>size-1 ||i<0){
+            System.out.println("invalid index");
+            return;
+        }
+        for(int j=0;j<=i-1;j++){
+            temp=temp.next;
+        }
+        System.out.println("found at index"+i+"  "+temp.data);
+    }
+
+    public void insertAtIndex(int i,int val){
+        //1->2->3->4->5      2   ,10 
+        //head -1->2->3      0-1   1 time   
+        Node temp=head;
+        Node node=new Node(val);
+        if(i>size ||i<0){
+            System.out.println("invalid index");
+            return;
+        }
+        for(int j=0;j<i-1;j++){
+            temp=temp.next;
+        }
+        node.next=temp.next.next;
+        temp.next=node;
+        System.out.println("inserted");
+        if(i==size){
+            size++;
+        }
+       printList();
+    }
+
 
    
 
@@ -119,16 +154,10 @@ class List {
         list.insertAtTail(20);
         list.insertAtTail(30);
         list.insertAtTail(40);
-        list.printList();
-         list.deleteEnd();
-           list.printList();
-          list.deleteEnd();
-            list.printList();
-           list.deleteEnd();
-             list.printList();
-            list.deleteEnd();
-          list.printList();
-           list.deleteEnd();
+        list.findAtIndex(3);
+        list.insertAtIndex(4,80);
+       // list.printList();
+
             //list.deleteEnd();
 
 
