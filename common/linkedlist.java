@@ -7,7 +7,7 @@ class Node {
         this.next = null;
     }
 }
-class LinkedList {
+class List {
     Node head;
 
    
