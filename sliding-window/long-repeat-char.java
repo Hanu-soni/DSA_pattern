@@ -1,6 +1,7 @@
 // Longest Repeating Character Replacement
 
 class Solution {
+    //A  AB   1>1
     public int characterReplacement(String s, int k) {
         //window-maxFreq<=k  , we are good to go
         int[] freq=new int[26];
