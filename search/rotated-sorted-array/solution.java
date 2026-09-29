@@ -23,7 +23,7 @@ class solution{
             //which half is sorted
             else if(arr[left]<=arr[mid]){
                 //left half is sorted
-                if(target>=arr[left] && target<=arr[mid]){
+                if(target>=arr[left] && target<arr[mid]){
                     right=mid-1;
                 }
                 else{
