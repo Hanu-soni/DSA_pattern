@@ -8,4 +8,11 @@ IPO - LeetCode
 Smallest Range Covering Elements from K Lists - LeetCode 
 Reorganize String - LeetCode 
 Furthest Building You Can Reach - LeetCode 
-Maximum Performance of a Team - LeetCode 
+Maximum Performance of a Team - LeetCode
+
+
+Try heap sort with O(1) extra space
+Write the code for converting an array into heap data structure
+Discussed this problem - Merge k Sorted Lists - LeetCode
+Next Week - Complete all heap problems
+
