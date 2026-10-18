@@ -56,7 +56,8 @@ class Merge{
 
     }
     public static void main(String[] args){
-        int[] arr={5,4,3,2,1}; 
+        int[] arr={4,2,15,6,7,12,14,11,10};
+        printarr(arr);
         mergesort(arr,0,arr.length-1);
         printarr(arr);
     }
